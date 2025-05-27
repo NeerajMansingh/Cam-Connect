@@ -1,0 +1,19 @@
+{
+  "name": "cam_connect",
+  "version": "1.0.0",
+  "main": "electron-app/main/index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "Neeraj",
+  "license": "ISC",
+  "description": "cam_connect project",
+  "devDependencies": {
+    "electron": "^36.3.1"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "ws": "^8.18.2"
+  }
+}
