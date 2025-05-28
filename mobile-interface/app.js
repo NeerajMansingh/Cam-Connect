@@ -1,7 +1,7 @@
 const camera_input=document.getElementById("cameraInput");
 const preview=document.getElementById("preview");
 const send_btn=document.getElementById("sendBtn");
-const status1=document.getElementById("status");
+const status1=document.getElementById("status1");
 
 let file_sel=null;
 let ws=null;
@@ -11,7 +11,7 @@ const WS_URL = 'ws://192.168.1.10:3000';
 camera_input.addEventListener('change',()=>{
     const file_obtained=camera_input.files[0];
     console.log(file_obtained);
-    if(file_obtained === NULL) return;
+    if(file_obtained === null) return;
 
     file_sel=file_obtained;
 
@@ -43,8 +43,6 @@ function connectWebSocket() {
     console.log('Message from server:', event.data);    
   });
 }
-
-
 
 
 send_btn.addEventListener('click', () => {

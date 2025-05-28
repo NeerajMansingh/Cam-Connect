@@ -5,7 +5,6 @@ const path = require('path');
 const {WebSocketServer}=require('ws')
 
 
-
 app.use(express.static(path.join(__dirname, '../../mobile-interface')));
 
 
