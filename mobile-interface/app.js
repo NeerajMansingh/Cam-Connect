@@ -3,21 +3,21 @@ const preview=document.getElementById("preview");
 const send_btn=document.getElementById("sendBtn");
 const status1=document.getElementById("status");
 
-let file_sel=NULL;
-let ws=NULL;
+let file_sel=null;
+let ws=null;
 
 const WS_URL = 'ws://192.168.1.10:3000';
 
 camera_input.addEventListener('change',()=>{
     const file_obtained=camera_input.files[0];
-    console.log(files);
+    console.log(file_obtained);
     if(file_obtained === NULL) return;
 
     file_sel=file_obtained;
 
     const img_url=URL.createObjectURL(file_sel);
     preview.src=img_url;
-    send_btn.disabled=true;
+    send_btn.disabled=false;
     status1.textContent="";
 });
 
@@ -48,7 +48,7 @@ function connectWebSocket() {
 
 
 send_btn.addEventListener('click', () => {
-  if (!selectedFile || !ws || ws.readyState !== WebSocket.OPEN) {
+  if (!file_sel || !ws || ws.readyState !== WebSocket.OPEN) {
     status1.textContent = 'Not connected or no file selected';
     return;
   }
