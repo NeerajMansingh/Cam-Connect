@@ -6,7 +6,7 @@ const status1=document.getElementById("status1");
 let file_sel=null;
 let ws=null;
 
-const WS_URL = 'ws://192.168.1.10:3000';
+const WS_URL = window.location.origin.replace(/^http/, 'ws'); // dynamically set WebSocket URL
 
 camera_input.addEventListener('change',()=>{
     const file_obtained=camera_input.files[0];

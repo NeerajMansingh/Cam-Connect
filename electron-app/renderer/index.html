@@ -1,7 +1,62 @@
 <!DOCTYPE html>
-<html>
-  <body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cam Connect - QR Code</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9fafb;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+    .container {
+      background: white;
+      max-width: 420px;
+      width: 100%;
+      padding: 2.5rem 2rem 3rem;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgb(0 0 0 / 0.1);
+      text-align: center;
+    }
+    h1 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+    p {
+      line-height: 1.5;
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+      color: #555;
+    }
+    #qr_code {
+      max-width: 250px;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgb(0 0 0 / 0.12);
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
     <h1>Cam Connect</h1>
-    <p>Electron app is running!</p>
-  </body>
+    <p>Hi, Welcome to Cam Connect!</p>
+    <p>
+      Just scan this QR code to get started. It only takes a moment to connect with your smartphone. After that, you can keep sending as many photos as you like without needing to scan again—unless one of the devices gets disconnected.
+    </p>
+    <img id="qr_code" alt="QR Code to connect Cam Connect" />
+  </div>
+
+  <script src="index.js"></script>
+</body>
 </html>

@@ -1,29 +1,40 @@
+// server.js
 const express = require('express');
-const app = express();
-const PORT=3000;
 const path = require('path');
-const {WebSocketServer}=require('ws')
+const { WebSocketServer } = require('ws');
+const { convert_and_paste_clipboard } = require('./clipboard.js');
 
+function startServer(PORT) {
+  const app = express();
+  app.use(express.static(path.join(__dirname, '../../mobile-interface')));
 
-app.use(express.static(path.join(__dirname, '../../mobile-interface')));
+  
 
-
-app.get('/', (req, res) => {
-  res.send('hello world');
-});
-
-const server=app.listen(PORT,()=>{
-    console.log("console started on port 3000");
-});
-
-const wss = new WebSocketServer({server});
-
-wss.on('connection', function connection(ws) {
-  ws.on('error', console.error);
-
-  ws.on('message', function message(data) {
-    console.log('received: %s', data);
+  const server = app.listen(PORT, () => {
+    console.log("Server started on port", PORT);
   });
 
-  ws.send('something');
-});
+  const wss = new WebSocketServer({ server });
+
+  wss.on('connection', function connection(ws) {
+    ws.on('error', console.error);
+
+    ws.on('message', function message(data) {
+      console.log('Received data:', data);
+      const parsed_data = JSON.parse(data);
+
+      if (parsed_data.type === "image" && parsed_data.data) {
+        convert_and_paste_clipboard(parsed_data.data);
+        console.log("Image set to clipboard");
+      } else {
+        console.log("Invalid data type or missing image");
+      }
+    });
+  });
+
+  return server;
+}
+
+module.exports = {
+  startServer,
+};
