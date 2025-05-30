@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "main": "electron-app/main/index.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "keywords": [],
   "author": "Neeraj",
   "license": "ISC",
   "description": "cam_connect project",
   "devDependencies": {
-    "electron": "^36.3.1"
+    "electron": "^36.3.1",
+    "electron-builder": "^26.0.12"
   },
   "dependencies": {
     "express": "^5.1.0",
@@ -18,5 +21,30 @@
     "qrcode": "^1.5.4",
     "sharp": "^0.34.2",
     "ws": "^8.18.2"
+  },
+  "build": {
+    "appId": "com.camconnect.app",
+    "productName": "Cam Connect",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "mobile-interface/",
+        "to": "mobile-interface/",
+        "filter": ["**/*"]
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "build/icon.icns"
+    }
   }
 }
