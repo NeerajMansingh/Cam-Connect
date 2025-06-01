@@ -7,10 +7,29 @@
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
-  "keywords": [],
-  "author": "Neeraj",
-  "license": "ISC",
-  "description": "cam_connect project",
+  "keywords": [
+    "electron",
+    "clipboard",
+    "websocket",
+    "camera",
+    "image-transfer",
+    "text-transfer",
+    "mobile-to-desktop",
+    "remote-clipboard",
+    "electron-app",
+    "cross-device",
+    "realtime-sync",
+    "file-transfer",
+    "qr-code",
+    "p2p-sync",
+    "cam-connect",
+    "local-network",
+    "photo-sync",
+    "text-sync"
+  ],
+  "author": "Neeraj Mansingh",
+  "license": "MIT",
+  "description": "Cam_connect",
   "devDependencies": {
     "electron": "^36.3.1",
     "electron-builder": "^26.0.12"
@@ -35,7 +54,9 @@
       {
         "from": "mobile-interface/",
         "to": "mobile-interface/",
-        "filter": ["**/*"]
+        "filter": [
+          "**/*"
+        ]
       }
     ],
     "win": {
